@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de" class="js-intro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Habitat 2030 Intro Vorschau</title>
+<script>document.documentElement.classList.add('js-intro');setTimeout(function(){document.documentElement.classList.remove('js-intro')},7000)</script>
+<style>
+@font-face{font-family:"neue-haas-grotesk-display";src:url("../../fonts/NHaasGroteskDSPro-55Rg.woff") format("woff");font-weight:400}
+@font-face{font-family:"neue-haas-grotesk-display";src:url("../../fonts/NHaasGroteskDSPro-75Bd.woff") format("woff");font-weight:700}
+*,*:before,*:after{box-sizing:border-box}
+html,body,div,span,h1,p,a,main,section{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+:root{--gap:1.75rem;--black:#111;--background:#C9C1B4;--font-stack-dafault:"neue-haas-grotesk-display",sans-serif;--font-size-root:14px;--font-size-xxlarge:6.25rem;--font-size-large:2.5rem;--font-size-medium:1.25rem;--neon-pink:rgb(255,0,246);--highlight:rgb(0,255,0);--line-stroke-width:.5rem}
+@media only screen and (max-width:767.98px){:root{--font-size-root:12px;--font-size-xxlarge:4.5rem}}
+html{font-size:var(--font-size-root);background:var(--background)}
+body{font-family:var(--font-stack-dafault);font-size:1rem;line-height:1.1;background:var(--background);color:var(--black)}
+h1{font-size:var(--font-size-xxlarge);hyphens:auto;padding-right:calc(3*var(--gap))!important}
+.text-xx-large{font-size:var(--font-size-xxlarge)!important;letter-spacing:-.02em;line-height:.95}
+.text-large{font-size:var(--font-size-large)!important;line-height:1.2;letter-spacing:0}
+.right{text-align:right}
+.button{border:0;border-radius:1.3em;background:var(--highlight);padding:.5em 1.5em;line-height:1;font-size:var(--font-size-medium);display:inline-block;text-decoration:none;color:var(--black)}
+.button.pink{background:var(--neon-pink)}
+.button.cta{padding-left:.5em;display:inline-flex;justify-content:center;transition:padding .2s ease-in-out}
+.button.cta:before{overflow:hidden;content:"→";display:inline-block;opacity:0;width:0;margin-right:0;transition:width .2s ease-in-out,opacity .2s linear}
+.button.cta:hover{padding-left:1em}.button.cta:hover::before{opacity:1;width:1em;margin-right:.25em}
+html,body{overflow:hidden;height:100%}.intro{height:100vh;display:flex;width:100%;flex-direction:column;padding:var(--gap)}
+.intro .line-container{min-height:60vh;position:relative}
+.intro .line-container:before,.intro .line-container:after{position:absolute;display:block;content:" ";top:20%;bottom:20%;width:var(--line-stroke-width);background:var(--black)}
+.intro .line-container:after{right:0}
+.intro .line-container .line{display:block;width:100%;position:absolute;left:50%;right:0;top:50%;height:var(--line-stroke-width);transform:translateY(-50%) translateX(-50%);background:var(--black)}
+.intro .claim{transform:translateY(-100%)}
+.intro .claim{display:none}
+.intro h1.right{padding-right:0!important}
+</style>
+<link rel="stylesheet" href="../intro-addon.css">
+</head>
+<body>
+<main>
+  <section class="intro">
+    <h1 class="text-xx-large">Habitat</h1>
+    <span class="line-container"><span class="line"></span></span>
+    <h1 class="text-xx-large right">2030</h1>
+    <div class="claim">
+      <p class="text-large">Bauen gegen die Klimakrise!<br><a href="#" class="button pink cta">Mach mit</a></p>
+    </div>
+  </section>
+  
+</main>
+<script src="gsap.min.js"></script>
+<script src="ScrollTrigger.min.js"></script>
+<script>gsap.registerPlugin(ScrollTrigger);</script>
+<script src="intro.js"></script>
+</body>
+</html>

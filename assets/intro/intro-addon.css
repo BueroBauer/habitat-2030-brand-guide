@@ -1,0 +1,33 @@
+/* Habitat 2030 Intro: ans Ende von css/app.css */
+
+/* Randlinien skalieren über --edge (0 bis 1), Intro animiert die Variable */
+.intro .line-container:before,
+.intro .line-container:after {
+  transform: scaleY(var(--edge, 1));
+  transform-origin: 50% 50%;
+}
+
+/* Flash vermeiden: Intro-Elemente unsichtbar bis JS die Startposition gesetzt hat.
+   Klasse js-intro setzt das Inline-Script im <head> (siehe README) */
+.js-intro .intro h1,
+.js-intro .intro .claim { visibility: hidden; }
+.js-intro.intro-ready .intro h1,
+.js-intro.intro-ready .intro .claim { visibility: visible; }
+
+/* Mobil-Layout nach Vorlage: Intro füllt den Viewport, Habitat oben, Claim + Button unten links, 2030 unten rechts */
+@media only screen and (max-width: 767.98px) {
+  .intro {
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "title title" "line line" "claim year";
+    align-items: end;
+  }
+  .intro h1:not(.right) { grid-area: title; align-self: start; }
+  .intro .line-container { grid-area: line; align-self: stretch; min-height: 0; margin-top: 2rem; }
+  .intro h1.right { grid-area: year; }
+  .intro .claim { grid-area: claim; }
+  .intro .line-container:before,
+  .intro .line-container:after { top: 42%; bottom: 42%; }
+}
